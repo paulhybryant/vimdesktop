@@ -5,6 +5,7 @@
 #Include %A_ScriptDir%\Plugins\custom\filepath.ahk
 #Include %A_ScriptDir%\Plugins\custom\hideotherwindows.ahk
 #Include %A_ScriptDir%\Plugins\custom\windowdrag.ahk
+#Include %A_ScriptDir%\Plugins\custom\mousecopy.ahk
 
 ; Hotkey for old IE6, map Ctrl+L to Alt+D
 $^l::                      
