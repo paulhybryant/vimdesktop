@@ -7,7 +7,7 @@
 #Include %A_ScriptDir%\Plugins\custom\windowdrag.ahk
 
 ; Hotkey for old IE6, map Ctrl+L to Alt+D
-$^L::                      
+$^l::                      
 	WinGetTitle, title, A
 	if title contains Internet Explorer
 	{
@@ -21,7 +21,7 @@ $^L::
 return
 
 #IfWinActive ahk_class ConsoleWindowClass
-^V::
+^v::
 	SendInput {Raw}%clipboard%
 	return
 #IfWinActive
@@ -32,9 +32,12 @@ C_W_Handler()
 	{
 		WinClose A
 	}
-	
+	else
+	{
+		Send ^w
+	}
 }
-^W::C_W_Handler()
+$^w::C_W_Handler()
 
 ; ! Alt
 ; # Win
