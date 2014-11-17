@@ -76,7 +76,7 @@ vim.map("6","<6>","EVERYTHING")
 vim.map("7","<7>","EVERYTHING")
 vim.map("8","<8>","EVERYTHING")
 vim.map("9","<9>","EVERYTHING")
-vim.map("f","<运行且激活程序Everything>","EVERYTHING")
+; vim.map("f","<运行且激活程序Everything>","EVERYTHING")
 ; vim.map("<lwin>f","<ToggleEverything>")
 
 vim.mode("insert","EVERYTHING")
@@ -89,14 +89,14 @@ Return
 
 EVERYTHING_CheckMode()
 {
-	ControlGetFocus,ctrl,ahk_class EVERYTHING
-	;MsgBox,%ctrl%
-	If RegExMatch(ctrl,"Edit12")
-	;CoordMode,Caret,Window
-	;ToolTip, X%A_CaretX% Y%A_CaretY%, A_CaretX, A_CaretY - 20
-	;If A_CaretX>10
-		return True
-	return False
+  ControlGetFocus,ctrl,ahk_class EVERYTHING
+  ;MsgBox,%ctrl%
+  If RegExMatch(ctrl,"Edit12")
+  ;CoordMode,Caret,Window
+  ;ToolTip, X%A_CaretX% Y%A_CaretY%, A_CaretX, A_CaretY - 20
+  ;If A_CaretX>10
+    return True
+  return False
 }
 
 
@@ -124,64 +124,64 @@ return
 
 ;移动
 <EVERYTHING_向下>:
-	Send,{Down}
+  Send,{Down}
 return
 <EVERYTHING_向上>:
-	Send,{Up}
+  Send,{Up}
 return
 <EVERYTHING_向下选择>:
-	Send,+{Down}
+  Send,+{Down}
 return
 <EVERYTHING_向上选择>:
-	Send,+{Up}
+  Send,+{Up}
 return
 <EVERYTHING_移动到第一行>:
-	Send,{home}
+  Send,{home}
 return
 <EVERYTHING_移动到最后行>:
-	Send,{end}
+  Send,{end}
 return
 
 ;其它
 <EVERYTHING_使用指定程序打开>:
-	ClipSaved := ClipboardAll
-	Clipboard =
-	Sendinput ^c
-	While(!Clipboard)
-	{
-		ClipWait,0.1,1
-		If A_Index > %MaxTimeWait%
-			Break
-	}
-	Select = %Clipboard% ; 强制转换为纯文本
-	IsFile := DllCall("IsClipboardFormatAvailable","int",15)
-	Clipboard := ClipSaved
-	ClipSaved =
-	If IsFile
-	{
-		If RegExMatch(Select,"\n")
-		{
-			Loop,Parse,Select,`n,`r
-			{
-				Run, %everything2exec% "%A_LoopField%" ,,UseErrorLevel
-			}
-		}
-		Else
-				Run, %everything2exec% "%A_LoopField%" ,,UseErrorLevel
-		If ErrorLevel
-			msgbox 请修改 vimd 所在目录下 `nplugins\everything\everything.ahk `n中的global everything2exec的值
-	}
+  ClipSaved := ClipboardAll
+  Clipboard =
+  Sendinput ^c
+  While(!Clipboard)
+  {
+    ClipWait,0.1,1
+    If A_Index > %MaxTimeWait%
+      Break
+  }
+  Select = %Clipboard% ; 强制转换为纯文本
+  IsFile := DllCall("IsClipboardFormatAvailable","int",15)
+  Clipboard := ClipSaved
+  ClipSaved =
+  If IsFile
+  {
+    If RegExMatch(Select,"\n")
+    {
+      Loop,Parse,Select,`n,`r
+      {
+        Run, %everything2exec% "%A_LoopField%" ,,UseErrorLevel
+      }
+    }
+    Else
+        Run, %everything2exec% "%A_LoopField%" ,,UseErrorLevel
+    If ErrorLevel
+      msgbox 请修改 vimd 所在目录下 `nplugins\everything\everything.ahk `n中的global everything2exec的值
+  }
 return
 
 <EVERYTHING_复制完整路径>:
 {
-	send,^+!c
+  send,^+!c
 return
 }
 
 <EVERYTHING_打开路径>:
 {
-	send,^{Enter}
+  send,^{Enter}
 return
 }
 ;导航
@@ -488,25 +488,25 @@ EVERYTHING_搜索(Filter)
 ;排序
 <EVERYTHING_按名称排序>:
 {
-	send,^1
+  send,^1
 return
 }
 
 <EVERYTHING_按更新时间排序>:
 {
-	send,^6
+  send,^6
 return
 }
 
 <EVERYTHING_按路径排序>:
 {
-	send,^2
+  send,^2
 return
 }
 
 <EVERYTHING_按类型排序>:
 {
-	send,^5
+  send,^5
 return
 }
 
@@ -525,7 +525,7 @@ return
 
 <EVERYTHING_按运行次数排序>:
 {
-	send,^+!1
+  send,^+!1
 return
 }
 
@@ -548,7 +548,7 @@ return
     IfWinExist,ahk_class EVERYTHING
         WinActivate,ahk_class EVERYTHING
     Else
-        Run,%Everythingpath%
+        Run c:\Program Files\Everything\Everything.exe
     Loop,4
     {
         IfWinNotActive,ahk_class EVERYTHING
