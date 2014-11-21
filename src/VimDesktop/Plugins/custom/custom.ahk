@@ -40,6 +40,12 @@ C_W_Handler()
 }
 $^w::C_W_Handler()
 
+; Natural scrolling
+; WheelUp::Send {WheelDown}
+; return
+; WheelDown::Send {WheelUp}
+; return
+
 ; ! Alt
 ; # Win
 ; ^ Control
