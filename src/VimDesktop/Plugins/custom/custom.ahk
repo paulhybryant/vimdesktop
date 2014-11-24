@@ -40,8 +40,9 @@ C_W_Handler()
 }
 $^w::C_W_Handler()
 
-; Map Caps_Lock to Escape
-Capslock::Esc
+; Swap Caps_Lock to Escape
+$CapsLock::Esc
+$Esc::CapsLock
 
 ; Natural scrolling
 ; WheelUp::Send {WheelDown}
