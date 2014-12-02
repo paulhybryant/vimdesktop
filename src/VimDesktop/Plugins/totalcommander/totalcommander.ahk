@@ -164,7 +164,7 @@
 	vim.map("g$","<LastLine>","TTOTAL_CMD")
 	vim.map("gn","<cm_SwitchToNextTab>","TTOTAL_CMD")
 	vim.map("gp","<cm_SwitchToPreviousTab>","TTOTAL_CMD")
-	vim.map("gc","<cm_CloseCurrentTab>","TTOTAL_CMD")
+	vim.map("dd","<cm_CloseCurrentTab>","TTOTAL_CMD")
 	vim.map("gb","<cm_OpenDirInNewTabOther>","TTOTAL_CMD")
 	vim.map("ge","<cm_Exchange>","TTOTAL_CMD")
 	vim.map("gw","<cm_ExchangeWithTabs>","TTOTAL_CMD")

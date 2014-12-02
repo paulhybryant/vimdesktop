@@ -45,10 +45,10 @@ $CapsLock::Esc
 $Esc::CapsLock
 
 ; Natural scrolling
-; WheelUp::Send {WheelDown}
-; return
-; WheelDown::Send {WheelUp}
-; return
+WheelUp::Send {WheelDown}
+return
+WheelDown::Send {WheelUp}
+return
 
 ; ! Alt
 ; # Win
