@@ -5,6 +5,8 @@
 #Include %A_ScriptDir%\Plugins\custom\filepath.ahk
 #Include %A_ScriptDir%\Plugins\custom\hideotherwindows.ahk
 #Include %A_ScriptDir%\Plugins\custom\windowdrag.ahk
+#Include %A_ScriptDir%\Plugins\custom\dock.ahk
+#Include %A_ScriptDir%\Plugins\custom\fling.ahk
 ; #Include %A_ScriptDir%\Plugins\custom\mousecopy.ahk
 
 ; Hotkey for old IE6, map Ctrl+L to Alt+D
@@ -49,6 +51,14 @@ WheelUp::Send {WheelDown}
 return
 WheelDown::Send {WheelUp}
 return
+
+^!+Left::
+	Win__Fling(-1, "A")
+	return
+
+^!+Right::
+	Win__Fling(1, "A")
+	return
 
 ; ! Alt
 ; # Win
