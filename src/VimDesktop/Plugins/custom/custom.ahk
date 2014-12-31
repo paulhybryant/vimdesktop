@@ -60,6 +60,30 @@ return
 	Win__Fling(1, "A")
 	return
 
+;~ RemoveToolTip:
+;~ SetTimer, RemoveToolTip, Off
+;~ ToolTip
+;~ return
+
+;~ LAlt::
+;~ {
+	;~ KeyWait, LAlt
+	;~ state := GetKeyState("NumLock", "T") 
+	;~ if (state)
+	;~ {
+		;~ SetNumLockState off
+		;~ ToolTip, numlock off
+		;~ SetTimer, RemoveToolTip, 1000
+	;~ }
+	;~ else
+	;~ {
+		;~ SetNumLockState on
+		;~ tooltip, numlock on
+		;~ SetTimer, RemoveToolTip, 1000
+	;~ }
+;~ }
+;~ return
+
 ; ! Alt
 ; # Win
 ; ^ Control
