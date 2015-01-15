@@ -71,7 +71,14 @@
 ; With minor modification, this function could also account for vertically positioned 
 ; monitors.
 
+^#D::
+    Class_Console("DebugConsole", 100, 100, 400, 600, "Debug Console")
+    DebugConsole.log("Debug Console Created")
+	DebugConsole.show()
+	return
+
 GetActiveMonitor(hwnd := 0) {
+	global DebugConsole
 	; If no hwnd is provided, use the Active Window
 	if (hwnd)
 		WinGetPos, winX, winY, winW, winH, ahk_id %hwnd%
@@ -81,16 +88,24 @@ GetActiveMonitor(hwnd := 0) {
 	SysGet, numDisplays, MonitorCount
 	SysGet, idxPrimary, MonitorPrimary
 	Loop %numDisplays%
-	{	SysGet, mon, MonitorWorkArea, %a_index%
-		; Left may be skewed on Monitors past 1
-		if (a_index > 1)
+	{	
+		SysGet, mon, MonitorWorkArea, %a_index%
+		DebugConsole.log("Monitor ID: " . a_index)
+		; Change the following to a_index > 1 if your primary monitor is the left one
+		if (a_index = 1) {
+			; Left may be skewed on Monitors past 1
 			monLeft -= 10
-		; Right overlaps Left on Monitors past 1
-		else if (numDisplays > 1)
+		} else if (numDisplays > 1) {
+			; Right overlaps Left on Monitors past 1
 			monRight -= 10
+		}
 		; Tracked based on X. Cannot properly sense on Windows "between" monitors
-		if (winX >= monLeft && winX < monRight)
+		DebugConsole.log("WinX: " . winX)
+		DebugConsole.log("MonLeft: " . monLeft)
+		DebugConsole.log("MonRight: " . monRight)
+		if (winX >= monLeft && winX < monRight) {
 			return %a_index%
+		}
 	}
 	; Return Primary Monitor if can't sense
 	return idxPrimary

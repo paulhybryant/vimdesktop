@@ -1,0 +1,3 @@
+[submodule "src/Class_Console"]
+	path = src/Class_Console
+	url = https://github.com/AfterLemon/Class_Console.git

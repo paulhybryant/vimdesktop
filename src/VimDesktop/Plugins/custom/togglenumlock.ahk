@@ -6,7 +6,8 @@ state := GetKeyState("NumLock", "T")
 if (state)
 {
 	SetNumLockState off
-	ToolTip, numlock off
+	MsgBox 小键盘已关闭
+	; ToolTip, numlock off
 	;~ SetTimer, RemoveToolTip, 1000
 	Sleep, 1000
 	Tooltip
@@ -14,7 +15,8 @@ if (state)
 else
 {
 	SetNumLockState on
-	tooltip, numlock on
+	MsgBox 小键盘已打开
+	; tooltip, numlock on
 	;~ SetTimer, RemoveToolTip, 1000
 	Sleep, 1000
 	Tooltip
