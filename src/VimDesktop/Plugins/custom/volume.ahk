@@ -3,6 +3,6 @@
 ;F10::Send {Volume_Up}
 ;F9::Send {Volume_Down}
 
-^!UP::send {Volume_Up}
-^!DOWN::send {Volume_Down}
+#UP::send {Volume_Up}
+#DOWN::send {Volume_Down}
 #0::send {Volume_Mute}
